@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  title: MyString
+  max_players: 1
+  start_date: 
+  start_time: 
+  sport_id: 1
+  planner_id: 1
+
+two:
+  location: MyString
+  title: MyString
+  max_players: 1
+  start_date: 
+  start_time: 
+  sport_id: 1
+  planner_id: 1
