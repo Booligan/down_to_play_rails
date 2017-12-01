@@ -15,7 +15,6 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    binding.pry
     if @game.save
       redirect_to game_path(@game), notice: "Successfully planned a Game"
     else
