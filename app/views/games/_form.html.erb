@@ -1,15 +1,23 @@
+<% if @game.errors.any?%>
+  <h2><%= pluralize(@game.errors.count, "error")%> prevented this Game from saving</h2>
+  <ul>
+    <% @game.errors.full_messages.each do |msg|%>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @game do |f|%>
   <%= f.hidden_field :planner_id, value: current_user.id %>
   <div class="field">
     <%= f.collection_select :sport_id, Sport.all, :id, :name, include_blank: "Pick a sport"%>
-  </div>
 
-  <div class="field">
     <%= f.fields_for :sport do |builder| %>
       <%= builder.label :name, "New Sport:"%>
-      <%= builder.text_field :name %><br>
+      <%= builder.text_field :name, value: nil, placeholder:"Sport Name" %><br>
     <% end %>
   </div>
+  <br>
 
   <div class="field">
     <%= f.label :location %>
@@ -28,12 +36,12 @@
 
   <div class="field">
     <%= f.label :max_players %>
-    <%= f.number_field :max_players, min: 0, max: 50, value: 10 %>
+    <%= f.number_field :max_players, min: 1, max: 50, placeholder: 10 %>
   </div>
 
   <div class="field">
     <%= f.label :start_date %>
-    <%= f.date_field :start_date %>
+    <%= f.date_field :start_date, min: Date.today, placeholder: Date.today %>
   </div>
 
   <div class="field">
