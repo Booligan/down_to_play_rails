@@ -1,29 +1,45 @@
 <%= form_for @game do |f|%>
-  <%= f.collection_select :sport_id, Sport.all, :id, :name, include_blank: "Pick a sport"%>
-  <p>
+  <%= f.hidden_field :planner_id, value: current_user.id %>
+  <div class="field">
+    <%= f.collection_select :sport_id, Sport.all, :id, :name, include_blank: "Pick a sport"%>
+  </div>
+
+  <div class="field">
+    <%= f.fields_for :sport do |builder| %>
+      <%= builder.label :name, "New Sport:"%>
+      <%= builder.text_field :name %><br>
+    <% end %>
+  </div>
+
+  <div class="field">
     <%= f.label :location %>
     <%= f.text_field :location %>
-  </p>
+  </div>
 
-  <p>
+  <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
-  </p>
-  <p>
+  </div>
+
+  <div class="field">
     <%= f.label :notes %>
     <%= f.text_area :notes %>
-  </p>
-  <p>
+  </div>
+
+  <div class="field">
     <%= f.label :max_players %>
     <%= f.number_field :max_players, min: 0, max: 50, value: 10 %>
-  </p>
-  <p>
+  </div>
+
+  <div class="field">
     <%= f.label :start_date %>
     <%= f.date_field :start_date %>
-  </p>
-  <p>
+  </div>
+
+  <div class="field">
     <%= f.label :start_time %>
     <%= f.time_field :start_time %>
-  </p>
+  </div>
+
     <%= f.submit %>
 <% end %>

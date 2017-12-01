@@ -1,4 +1,11 @@
 <h1><%= @game.title %><h1>
 <p><%= @game.notes %></p>
+<p><%= @game.location %></p>
+<p><%= @game.start_date %></p>
+<p><%= @game.start_time %></p>
+
+<p>Created by: <%= @game.planner.email %></p>
+
 
 <%= link_to "Home", root_path%>
+<%= link_to "Edit", edit_game_path(@game)%>
