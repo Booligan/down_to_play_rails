@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :find_game, only: [:show, :edit, :update, :destroy]
+  before_action :find_game, only: [:show, :edit, :update, :join, :destroy]
 
   def index
     @games = Game.all
@@ -30,6 +30,15 @@ class GamesController < ApplicationController
       redirect_to game_path(@game), notice: "Game was successfully updated"
     else
       render 'edit'
+    end
+  end
+
+  def join
+    @game.users << current_user
+    if @game.save
+      redirect_to game_path(@game), notice: "You successfully joined the game"
+    else
+      render 'show'
     end
   end
 

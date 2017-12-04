@@ -5,8 +5,14 @@
 <p><%= @game.start_date %></p>
 <p><%= @game.start_time %></p>
 
-<p>Created by: <%= @game.planner.email %></p>
+<p>Created by: <%= @game.planner_email %></p>
+<p>Players: <%= @game.players %></p>
 
 
-<%= link_to "Home", root_path%>
-<%= link_to "Edit", edit_game_path(@game)%>
+<% if @game.planner == current_user%>
+  <%= link_to "Back", games_path%>
+  <%= link_to "Edit", edit_game_path(@game)%>
+<% else%>
+  <%= link_to "Back", games_path%>
+  <%= link_to "Join Game", join_game_path(@game)%>
+<% end %>

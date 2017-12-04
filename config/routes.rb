@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   resources :games
 
+  get '/games/:id/join', to: 'games#join', as: 'join_game'
   root 'pages#home'
 end

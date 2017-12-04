@@ -1,5 +1,5 @@
 <h1>Game Index</h1>
 <% @games.each do |game| %>
   <h2> <%= link_to game.title, game_path(game) %> </h2>
-  <small><%="Planned by: #{game.planner.email}"%><small>
+  <small><%="Planned by: #{game.planner.email}"%></small>
 <% end %>

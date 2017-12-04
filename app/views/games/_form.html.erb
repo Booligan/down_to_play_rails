@@ -1,23 +1,28 @@
-<% if @game.errors.any?%>
-  <h2><%= pluralize(@game.errors.count, "error")%> prevented this Game from saving</h2>
-  <ul>
-    <% @game.errors.full_messages.each do |msg|%>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="fields_with_errors">
+  <% if @game.errors.any?%>
+    <h2><%= pluralize(@game.errors.count, "error")%> prevented this Game from saving</h2>
+    <ul>
+      <% @game.errors.full_messages.each do |msg|%>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
 
 <%= form_for @game do |f|%>
   <%= f.hidden_field :planner_id, value: current_user.id %>
-  <div class="field">
-    <%= f.collection_select :sport_id, Sport.all, :id, :name, include_blank: "Pick a sport"%>
 
-    <%= f.fields_for :sport do |builder| %>
-      <%= builder.label :name, "New Sport:"%>
-      <%= builder.text_field :name, value: nil, placeholder:"Sport Name" %><br>
+  <div class="field">
+    <%= f.fields_for :sport do |builder|%>
+      <%= builder.label :sport %>
+      <%= builder.text_field :name, list: "sports_autocomplete", placeholder: "Pick or Add a Sport"%>
+      <datalist id="sports_autocomplete">
+        <% Sport.all.each do |sport|%>
+          <option value="<%= sport.name %>">
+        <% end %>
+      </datalist>
     <% end %>
   </div>
-  <br>
 
   <div class="field">
     <%= f.label :location %>
