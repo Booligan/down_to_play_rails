@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :find_game, only: [:show, :edit, :update, :join, :destroy]
+  before_action :find_game, only: [:show, :edit, :update, :join, :leave, :destroy]
 
   def index
     @games = Game.all
@@ -34,11 +34,24 @@ class GamesController < ApplicationController
   end
 
   def join
-    @game.users << current_user
-    if @game.save
-      redirect_to game_path(@game), notice: "You successfully joined the game"
+    if logged_in? && current_user != @game.planner
+      @game.join_game(current_user)
+      if @game.save
+        redirect_to game_path(@game), notice: "You successfully joined the game!"
+      end
     else
-      render 'show'
+      redirect_to game_path(@game), notice: "Cannot join game"
+    end
+  end
+
+  def leave
+    if logged_in? && @game.users.include?(current_user)
+      @game.leave_game(current_user)
+      if @game.save
+        redirect_to game_path(@game), notice: "You successfully left the game."
+      end
+    else
+        redirect_to game_path(@game), notice: "Can not leave a game without joining."
     end
   end
 

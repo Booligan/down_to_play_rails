@@ -17,7 +17,20 @@ class Game < ApplicationRecord
   end
 
   def players
-  
+    players = []
+    self.users.each do |player|
+      players << player.email
+    end
+    players
+  end
+
+  def join_game(player)
+    self.users << player
+  end
+
+  def leave_game(player)
+    self.users.delete(player)
+    self.players.delete(player.email)
   end
 
 end
