@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   controller :pages do
     get :home
     get :about
-    get :contact
+    get :profile
   end
 
   resources :games

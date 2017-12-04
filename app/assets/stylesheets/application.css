@@ -108,6 +108,11 @@ nav ul li a{
 
 .logo{
   float: left;
+  font-weight: bolder;
+}
+
+.notice, .alert{
+  margin:0;
 }
 
 @media screen and (max-width: 768px){
