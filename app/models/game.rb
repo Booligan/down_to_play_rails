@@ -4,13 +4,17 @@ class Game < ApplicationRecord
   has_many :user_joined_games, :foreign_key => 'joined_game_id'
   has_many :joined_players, through: :user_joined_games
 
-
-  accepts_nested_attributes_for :sport, reject_if: proc { |attributes| attributes['name'].blank? }
-
   validates :location, length: { minimum: 5 }
   validates :title, length: { minimum: 5 }
   validates :start_date, presence: true
   validates :start_time, presence: true
+
+
+  def sport_attributes=(sport_attributes)
+    if !sport_attributes[:name].blank?
+      self.build_sport(sport_attributes)
+    end
+  end
 
   def planner_email
     self.planner.email
