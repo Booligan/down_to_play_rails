@@ -11,11 +11,9 @@
 
 <%= form_for @game do |f|%>
   <%= f.hidden_field :planner_id %>
-  <div class="field">
-    <%= f.collection_select :sport_id, Sport.all, :id, :name, include_blank: "Pick a sport"%>
-  </div>
 
   <div class="field">
+    <%= f.collection_select :sport_id, Sport.all, :id, :name, include_blank: "Pick a sport"%>
     <%= f.fields_for :sport do |builder| %>
       <%= builder.label :name, "New Sport:"%>
       <%= builder.text_field :name, value: nil %><br>
