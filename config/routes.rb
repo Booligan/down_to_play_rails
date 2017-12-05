@@ -3,10 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
 
-  controller :pages do
-    get :home
-    get :about
-    get :profile
+  resources :users, only: [:show, :index] do
+    resources :games, only: [:show, :index, :new]
   end
 
   resources :games
@@ -14,5 +12,10 @@ Rails.application.routes.draw do
   get '/games/:id/join', to: 'games#join', as: 'join_game'
   get '/games/:id/leave', to: 'games#leave', as: 'leave_game'
 
+  controller :pages do
+    get :home
+    get :about
+  end
+  
   root 'pages#home'
 end
