@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :find_game, only: [:show, :edit, :update, :join, :leave, :destroy]
+  before_action :find_game, only: [:show, :update, :join, :leave, :destroy]
 
   def index
     @games = Game.all
@@ -9,8 +9,12 @@ class GamesController < ApplicationController
   end
 
   def new
-    @game = Game.new
-    @game.build_sport
+    if params[:user_id] && !User.exists?(params[:user_id])
+      redirect_to users_path, alert: "User not found."
+    else
+      @game = Game.new(planner_id: params[:user_id])
+      @game.build_sport
+    end
   end
 
   def create
@@ -23,6 +27,20 @@ class GamesController < ApplicationController
   end
 
   def edit
+    if params[:user_id]
+      user= User.find_by(id: params[:user_id])
+      if user.nil?
+        redirect_to users_path, alert: "User not found."
+      else
+        @game = user.games.find_by(id: params[:id])
+        redirect_to user_games_path(user), alert: "Game not found." if @game.nil?
+      end
+    else
+      find_game
+      if @game.planner != current_user
+        redirect_to user_path(current_user)
+      end
+    end
   end
 
   def update

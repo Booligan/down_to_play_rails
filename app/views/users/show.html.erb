@@ -1,8 +1,18 @@
 <div class="">
-  <h1>My Games</h1>
+  <h1><%= @user.email %>'s Games</h1>
 </div>
 
 <div class="">
   <%= link_to "Find a Game", games_path %>
-  <%= link_to "Plan a Game", new_game_path %>
+  <%= link_to "Plan a Game", new_user_game_path(@user) %>
 </div>
+
+<p>Planed Games</p>
+<% @user.games.each do |game| %>
+  <div><%= game.title %></div>
+<% end %>
+
+<p>Joined Games</p>
+<% @user.joined_games.each do |game| %>
+  <div><%= game.title %></div>
+<% end %>

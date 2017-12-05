@@ -11,7 +11,7 @@
 
 <% if @game.planner == current_user%>
   <%= link_to "Back", games_path%>
-  <%= link_to "Edit", edit_game_path(@game)%>
+  <%= link_to "Edit", edit_user_game_path(@game.planner, @game)%>
 <% elsif @game.joined_players.include?(current_user)%>
 <%= link_to "Back", games_path%>
 <%= link_to "Leave Game", leave_game_path(@game)%>
