@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  has_many :planned_games
-  has_many :games, through: :planned_games
+  has_many :games, :foreign_key => "planner_id"
+  has_many :user_joined_games, :foreign_key => 'joined_player_id'
+  has_many :joined_games, through: :user_joined_games
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

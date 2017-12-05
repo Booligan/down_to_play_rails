@@ -45,7 +45,7 @@ class GamesController < ApplicationController
   end
 
   def leave
-    if logged_in? && @game.users.include?(current_user)
+    if logged_in? && @game.joined_players.include?(current_user)
       @game.leave_game(current_user)
       if @game.save
         redirect_to game_path(@game), notice: "You successfully left the game."

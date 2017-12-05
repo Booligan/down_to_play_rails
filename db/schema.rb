@@ -25,15 +25,15 @@ ActiveRecord::Schema.define(version: 20171204032503) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "planned_games", force: :cascade do |t|
-    t.integer "game_id"
-    t.integer "user_id"
+  create_table "sports", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "sports", force: :cascade do |t|
-    t.string "name"
+  create_table "user_joined_games", force: :cascade do |t|
+    t.integer "joined_game_id"
+    t.integer "joined_player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

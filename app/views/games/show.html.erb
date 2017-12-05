@@ -6,13 +6,13 @@
 <p><%= @game.start_time.strftime("%I:%M %p") %></p>
 
 <p>Created by: <%= @game.planner_email %></p>
-<p>Players: <%= @game.players %></p>
+
 
 
 <% if @game.planner == current_user%>
   <%= link_to "Back", games_path%>
   <%= link_to "Edit", edit_game_path(@game)%>
-<% elsif @game.users.include?(current_user)%>
+<% elsif @game.joined_players.include?(current_user)%>
 <%= link_to "Back", games_path%>
 <%= link_to "Leave Game", leave_game_path(@game)%>
 <% else%>

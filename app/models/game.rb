@@ -1,8 +1,10 @@
 class Game < ApplicationRecord
   belongs_to :sport
   belongs_to :planner, :class_name => "User", :foreign_key => "planner_id"
-  has_many :planned_games
-  has_many :users, through: :planned_games
+  has_many :user_joined_games, :foreign_key => 'joined_game_id'
+  has_many :joined_players, through: :user_joined_games
+
+
   accepts_nested_attributes_for :sport, reject_if: proc { |attributes| attributes['name'].blank? }
 
   validates :location, length: { minimum: 5 }
@@ -14,21 +16,12 @@ class Game < ApplicationRecord
     self.planner.email
   end
 
-  def players
-    players = []
-    self.users.each do |player|
-      players << player.email
-    end
-    players
-  end
-
   def join_game(player)
-    self.users << player
+    self.joined_players << player
   end
 
   def leave_game(player)
-    self.users.delete(player)
-    self.players.delete(player.email)
+    self.joined_players.delete(player)
   end
 
 end
