@@ -394,6 +394,7 @@ body#plan_game_page .container .new_game .field #game_sport_attributes_name {
 
 body#plan_game_page .container .new_game .field p {
   display: inline-block;
+  color: #2CB463;
 }
 
 body#plan_game_page .container .new_game .field input {
@@ -422,6 +423,10 @@ body#plan_game_page .container .new_game #submit input {
   cursor: pointer;
 }
 
+body#plan_game_page .container .new_game .field label {
+  color: #2CB463;
+}
+
 body#plan_game_page .container a {
   font-family: 'Raleway', sans-serif;
   text-decoration: none;
@@ -440,6 +445,10 @@ body#plan_game_page .container a {
   padding-top: 4%;
   height: 26px;
   text-align: center;
+}
+
+body#plan_game_page .container .fields_with_errors {
+  color: #2CB463;
 }
 
 /*END OF PLAN A GAME PAGE*/
@@ -479,6 +488,7 @@ body#edit_game_page .container .edit_game .field #game_sport_attributes_name {
 
 body#edit_game_page .container .edit_game .field p {
   display: inline-block;
+  color: #2CB463;
 }
 
 body#edit_game_page .container .edit_game .field input {
@@ -507,6 +517,10 @@ body#edit_game_page .container .edit_game #submit input {
   cursor: pointer;
 }
 
+body#edit_game_page .container .edit_game .field label {
+  color: #2CB463;
+}
+
 body#edit_game_page .container a {
   font-family: 'Raleway', sans-serif;
   text-decoration: none;
@@ -527,7 +541,145 @@ body#edit_game_page .container a {
   text-align: center;
 }
 
+body#edit_game_page .container .fields_with_errors {
+  color: #2CB463;
+}
+
 /*END OF EDIT GAME*/
+
+/*SHOW GAME*/
+
+body#show_game_page{
+  background-color: #CDD0CE;
+}
+
+body#show_game_page .container{
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+}
+
+body#show_game_page .container h1{
+  text-align: center;
+  color: #2CB463;
+  margin-bottom: 0px;
+  padding-left: 20%;
+}
+
+body#show_game_page .container small{
+  text-align: center;
+  padding-left: 44%;
+  color: slategray;
+}
+
+body#show_game_page .container #sport_name{
+  text-align: center;
+  padding-left: 47%;
+  color: #F9F3F4;
+}
+
+body#show_game_page .container #game_info{
+  margin-left: 10%;
+  display: inline-block;
+  float: left;
+}
+
+body#show_game_page .container #game_info h2{
+  margin: 0;
+  border: solid 3px;
+  border-color: white;
+  padding: 4%;
+  width: 250%;
+  padding-bottom: 25%;
+}
+
+body#show_game_page .container #joined_players table{
+  width: 31%;
+  float: right;
+  margin-right: 10%;
+  margin-top: 2%;
+}
+
+body#show_game_page .container #joined_players table th{
+  background-color: #2CB463;
+  color: #F9F3F4;
+}
+
+body#show_game_page .container .right_button{
+  position: relative;
+  float: right;
+  margin-right: 5%;
+}
+
+body#show_game_page .container .left_button .green_button.bttn{
+  margin-left: 3%;
+}
+
+body#show_game_page .container .left_button .green_button.bttn a{
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  float: left;
+  margin-right: 10px;
+  margin-left: 30px;
+  border: solid 3px;
+  padding: 6px;
+  border-radius: 20px;
+  background-color: #2CB463;
+  color: #F9F3F4;
+  width: 7%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+body#show_game_page .container .right_button .white_button.bttn a{
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  float: left;
+  margin-right: 10px;
+  border: solid 3px;
+  padding: 6px;
+  border-radius: 20px;
+  background-color: #F9F3F4;
+  color: #2CB463;
+  text-align: center;
+  margin-top: 10px;
+}
+
+body#show_game_page .container .right_button .red_button.bttn a{
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+  margin-left: 4px;
+  border: solid 3px;
+  padding: 6px;
+  border-radius: 20px;
+  background-color: red ;
+  color: #F9F3F4;
+  text-align: center;
+  margin-top: 10px;
+}
+
+body#show_game_page .container .right_button .gray_button.bttn a{
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+  margin-left: 4px;
+  border: solid 3px;
+  padding: 6px;
+  border-radius: 20px;
+  background-color: slategray ;
+  color: #F9F3F4;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/*END OF SHOW GAME*/
+
 
 
 /*RESPONSIVE STYLE*/

@@ -1,0 +1,39 @@
+<% if @game.planner == current_user%>
+  <div class="left_button">
+    <div class="green_button bttn">
+      <%= link_to "All Games", games_path%>
+    </div>
+  </div>
+  <div class="right_button">
+    <div class="white_button bttn">
+      <%= link_to "Edit Game", edit_user_game_path(@game.planner, @game)%>
+    </div>
+    <div class="red_button bttn">
+      <%= link_to "Cancel Game", game_path(@game), method: :delete %>
+    </div>
+  </div>
+  <% elsif @game.joined_players.include?(current_user)%>
+  <div class="left_button">
+    <div class="green_button bttn">
+      <%= link_to "All games", games_path%>
+    </div>
+  </div>
+  <div class="right_button">
+    <div class="gray_button bttn">
+      <%= link_to "Leave Game", leave_game_path(@game)%>
+    </div>
+  </div>
+  <% else%>
+  <div class="left_button">
+    <div class="green_button bttn">
+      <%= link_to "All Games", games_path%>
+    </div>
+  </div>
+    <% if !@game.full?%>
+    <div class="right_button">
+      <div class="white_button bttn">
+        <%= link_to "Join Game", join_game_path(@game)%>
+      </div>
+    </div>
+    <% end %>
+<% end %>
