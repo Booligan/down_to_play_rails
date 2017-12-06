@@ -234,13 +234,12 @@ body#game_indexpage table tr td a:hover {
 
 /* LOG IN PAGE*/
 
-body#login_page {
-  /*background-color: #CDD0CE;*/
+body#login_page, body#sign_up_page {
   background: url("/assets/soccer.jpg") no-repeat 50% 50%;
   background-size: cover;
 }
 
-body#login_page .container {
+body#login_page .container, body#sign_up_page .container {
   display: inline-block;
   margin-left: 33%;
   padding: 75px;
@@ -254,13 +253,13 @@ body#login_page .container {
 
 
 
-body#login_page .container .new_user .field input {
+body#login_page .container .new_user .field input, body#sign_up_page .container .new_user .field input {
   width: 300px;
   border-radius: 30px;
   height: 25px;
 }
 
-body#login_page .container .new_user .field input:focus {
+body#login_page .container .new_user .field input:focus, body#sign_up_page .container .new_user .field input:focus {
   width: 300px;
   border-radius: 30px;
   height: 25px;
@@ -321,6 +320,39 @@ body#login_page .container #no_account a{
 
 
 /*END OF LOG IN  PAGE*/
+
+/*SIGN UP PAGE*/
+
+body#sign_up_page .container .new_user .actions{
+  display: block;
+  margin-right: 30%;
+}
+
+body#sign_up_page .container .new_user .actions input{
+  width: 145%;
+  height: 30px;
+  border-radius: 30px;
+  font-family: 'Raleway',sans-serif;
+  background-color: #2CB463;
+  border: none;
+  color: white;
+  font-size: 1em;
+  cursor: pointer
+}
+
+body#sign_up_page .container .links p{
+  display: inline-block;
+  color: slategray;
+  margin: 6%;
+}
+
+body#sign_up_page .container .links a{
+  text-decoration: none;
+  color: #2CB463;
+}
+
+
+/*END OF SIGN UP PAGE*/
 
 /*RESPONSIVE STYLE*/
 
