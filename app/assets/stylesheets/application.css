@@ -351,6 +351,10 @@ body#sign_up_page .container .links a{
   color: #2CB463;
 }
 
+body#sign_up_page .container #new_user #error_explanation h2 {
+  font-size: 1em;
+}
+
 
 /*END OF SIGN UP PAGE*/
 
