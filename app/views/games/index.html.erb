@@ -17,7 +17,7 @@
           <td><%= game.sport_name %></td>
           <td><%= game.planner_email %></td>
           <% case %>
-            <% when game.players_needed <= 5 %>
+            <% when game.players_needed <= 3 %>
               <td style="color:yellow"><%= "#{game.players_needed} players needed." %></td>
             <% when game.players_needed == 'Game is full.'%>
               <td style="color:red"><%= game.players_needed %></td>
