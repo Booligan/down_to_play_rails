@@ -9,10 +9,10 @@
 
 <p>Planed Games</p>
 <% @user.games.each do |game| %>
-  <div><%= game.title %></div>
+  <div><%= link_to game.title, game_path(game) %></div>
 <% end %>
 
 <p>Joined Games</p>
 <% @user.joined_games.each do |game| %>
-  <div><%= game.title %></div>
+  <div><%= link_to game.title, game_path(game) %></div>
 <% end %>
