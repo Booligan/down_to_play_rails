@@ -1,15 +1,7 @@
 <%- if controller_name != 'sessions' %>
   <div class="links">
-    <%= link_to "Log in", new_session_path(resource_name) %><br />
+    <%= link_to "Log in", new_session_path(resource_name) %><br /><br />
   </div>
-<% end -%>
-
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <div class="facebook">
-      <%= link_to "Log in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br /><br />
-    </div>
-  <% end -%>
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
