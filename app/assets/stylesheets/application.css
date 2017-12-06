@@ -226,8 +226,15 @@ body#game_indexpage table tr td a {
     color: #2CB463;
 }
 
+body#game_indexpage table tr td a:hover {
+    color: #F9F3F4;
+}
+
 /*END OF GAME INDEX PAGE*/
 
+/* LOG IN PAGE*/
+
+/*END OF LOG IN  PAGE*/
 
 /*RESPONSIVE STYLE*/
 

@@ -61,7 +61,7 @@ class GamesController < ApplicationController
   end
 
   def join
-    if logged_in? && current_user != @game.planner
+    if logged_in? && current_user != @game.planner && !@game.full?
       @game.join_game(current_user)
       if @game.save
         redirect_to game_path(@game), notice: "You successfully joined the game!"

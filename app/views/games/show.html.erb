@@ -18,5 +18,7 @@
   <%= link_to "Leave Game", leave_game_path(@game)%>
 <% else%>
   <%= link_to "Back", games_path%>
-  <%= link_to "Join Game", join_game_path(@game)%>
+  <% if !@game.full?%>
+    <%= link_to "Join Game", join_game_path(@game)%>
+  <% end %>
 <% end %>

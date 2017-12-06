@@ -28,12 +28,12 @@ class Game < ApplicationRecord
     self.joined_players.count + 1
   end
 
-  def game_full?
+  def full?
     self.current_number_of_players == self.max_players
   end
 
   def players_needed
-    if !game_full?
+    if !full?
       players_needed = self.max_players - self.current_number_of_players
       players_needed
     else
