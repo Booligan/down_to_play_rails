@@ -15,34 +15,28 @@
   <div class="field">
     <%= f.collection_select :sport_id, Sport.all, :id, :name, include_blank: "Pick a sport"%>
     <%= f.fields_for :sport do |builder| %>
-      <%= builder.label :name, "New Sport:"%>
-      <%= builder.text_field :name, value: nil %><br>
+      <p>-or-</p><%= builder.text_field :name, value: nil, placeholder:"New Sport"%><br><br>
     <% end %>
   </div>
 
   <div class="field">
     <%= f.label :location %>
-    <%= f.text_field :location %>
+    <%= f.text_field :location, placeholder:"Location" %>
   </div>
 
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= f.label :notes %>
-    <%= f.text_area :notes %>
+    <%= f.text_field :title, placeholder:"Title" %>
   </div>
 
   <div class="field">
     <%= f.label :max_players %>
-    <%= f.number_field :max_players, min: 0, max: 50, value: 10 %>
+    <%= f.number_field :max_players, min: 0, max: 50, placeholder: 10 %>
   </div>
 
   <div class="field">
     <%= f.label :start_date %>
-    <%= f.date_field :start_date %>
+    <%= f.date_field :start_date, value: Time.now.strftime('%Y-%m-%d'), min: Time.now.strftime('%Y-%m-%d')%>
   </div>
 
   <div class="field">
@@ -50,5 +44,12 @@
     <%= f.time_field :start_time %>
   </div>
 
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_area :notes, placeholder:"Notes" %><br /><br />
+  </div>
+
+  <div id="submit">
     <%= f.submit %>
+  </div>
 <% end %>
