@@ -1,5 +1,31 @@
-<h1>Game Index</h1>
-<% @games.each do |game| %>
-  <h2> <%= link_to game.title, game_path(game) %> </h2>
-  <small><%="Planned by: #{game.planner.email}"%></small>
-<% end %>
+<body id="game_indexpage">
+  <div class="container">
+    <div class="header">
+        <h1>All Games</h1>
+    </div>
+
+    <table style="width:100%">
+      <tr>
+        <th>Title</th>
+        <th>Sport</th>
+        <th>Planner</th>
+        <th>Players needed</th>
+      </tr>
+        <% @games.each do |game| %>
+        <tr>
+          <td> <%= link_to game.title, game_path(game) %> </td>
+          <td><%= game.sport_name %></td>
+          <td><%= game.planner_email %></td>
+          <% case %>
+            <% when game.players_needed <= 5 %>
+              <td style="color:yellow"><%= "#{game.players_needed} players needed." %></td>
+            <% when game.players_needed == 'Game is full.'%>
+              <td style="color:red"><%= game.players_needed %></td>
+            <% else%>
+                <td><%= "#{game.players_needed} players needed." %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</body>

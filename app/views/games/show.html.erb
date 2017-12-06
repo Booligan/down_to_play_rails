@@ -11,10 +11,11 @@
 
 <% if @game.planner == current_user%>
   <%= link_to "Back", games_path%>
-  <%= link_to "Edit", edit_user_game_path(@game.planner, @game)%>
+  <%= link_to "Edit Game", edit_user_game_path(@game.planner, @game)%>
+  <%= link_to "Cancel Game", game_path(@game), method: :delete %>
 <% elsif @game.joined_players.include?(current_user)%>
-<%= link_to "Back", games_path%>
-<%= link_to "Leave Game", leave_game_path(@game)%>
+  <%= link_to "Back", games_path%>
+  <%= link_to "Leave Game", leave_game_path(@game)%>
 <% else%>
   <%= link_to "Back", games_path%>
   <%= link_to "Join Game", join_game_path(@game)%>

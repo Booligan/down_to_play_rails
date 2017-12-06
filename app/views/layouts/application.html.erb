@@ -10,21 +10,12 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   </head>
 
-  <body>
-    <%= render 'layouts/header' %>
+  <%= render 'layouts/header' %>
+  <%= yield %>
 
-    <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
-
-    <%= yield %>
-
-    <script>
-      $('.handle').on('click', function(){
-        $('nav ul').toggleClass('showing');
-      });
-    </script>
-  </body>
-
+  <script>
+    $('.handle').on('click', function(){
+      $('nav ul').toggleClass('showing');
+    });
+  </script>
 </html>

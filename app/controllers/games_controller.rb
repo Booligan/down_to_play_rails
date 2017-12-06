@@ -51,6 +51,15 @@ class GamesController < ApplicationController
     end
   end
 
+  def destroy
+    if @game.planner == current_user
+      @game.destroy
+      redirect_to user_path(current_user)
+    else
+      redirect_to user_path(current_user), notice: "You can not delete this game."
+    end
+  end
+
   def join
     if logged_in? && current_user != @game.planner
       @game.join_game(current_user)

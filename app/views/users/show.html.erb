@@ -1,18 +1,32 @@
-<div class="">
-  <h1><%= @user.email %>'s Games</h1>
-</div>
+<body id="profilepage">
+  <div class="container">
+    <div class="header">
+      <h1><%= @user.email %></h1>
+    </div>
 
-<div class="">
-  <%= link_to "Find a Game", games_path %>
-  <%= link_to "Plan a Game", new_user_game_path(@user) %>
-</div>
+    <div class="game_links">
+      <h2>Planed Games</h2>
+      <% @user.games.each do |game| %>
+        <div><%= link_to game.title, game_path(game) %></div>
+      <% end %>
+    </div>
 
-<p>Planed Games</p>
-<% @user.games.each do |game| %>
-  <div><%= link_to game.title, game_path(game) %></div>
-<% end %>
+    <div class="game_links">
+      <h2>Joined Games</h2>
+      <% @user.joined_games.each do |game| %>
+        <div><%= link_to game.title, game_path(game) %><small><%="- by #{game.planner_email}"%></small></div>
+      <% end %>
+    </div>
+    <br>
+    <br>
 
-<p>Joined Games</p>
-<% @user.joined_games.each do |game| %>
-  <div><%= link_to game.title, game_path(game) %></div>
-<% end %>
+    <div class="game_links_btn">
+      <%= link_to "Find Game", games_path %>
+    </div>
+
+    <div class="game_links_btn">
+      <%= link_to "Plan Game", new_user_game_path(@user) %>
+    </div>
+
+  </div>
+</body>

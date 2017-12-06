@@ -20,6 +20,27 @@ class Game < ApplicationRecord
     self.planner.email
   end
 
+  def sport_name
+    self.sport.name
+  end
+
+  def current_number_of_players
+    self.joined_players.count + 1
+  end
+
+  def game_full?
+    self.current_number_of_players == self.max_players
+  end
+
+  def players_needed
+    if !game_full?
+      players_needed = self.max_players - self.current_number_of_players
+      players_needed
+    else
+      "Game is full."
+    end
+  end
+
   def join_game(player)
     self.joined_players << player
   end
