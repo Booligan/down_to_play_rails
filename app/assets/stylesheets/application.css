@@ -8,6 +8,8 @@ html, body {
   width: 100%;
 }
 
+/*NAV BAR*/
+
 nav ul{
   background-color: #2CB463;
   overflow: hidden;
@@ -38,6 +40,10 @@ nav ul li a{
   text-decoration: none;
   color: inherit;
 }
+
+/*END OF NAVBAR*/
+
+/*HOME PAGE*/
 
 .intro{
   height: 100%;
@@ -116,6 +122,10 @@ nav ul li a{
   margin:0;
 }
 
+/*END OF HOME PAGE*/
+
+/*PROFILE PAGE*/
+
 body#profilepage {
   background-color: #CDD0CE;
 }
@@ -171,6 +181,55 @@ body#profilepage .game_links_btn a:hover{
   background-color: #F9F3F4;
   color: #2CB463;
 }
+/*END OF PROFILE PAGE*/
+
+/*GAME INDEX PAGE*/
+
+body#game_indexpage {
+  background-color: #CDD0CE;
+}
+
+body#game_indexpage .container {
+  color: #F9F3F4;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+
+body#game_indexpage .container h1 {
+  color: #F9F3F4;
+  margin-left: 50px;
+}
+
+body#game_indexpage table {
+    border-collapse: collapse;
+    border: solid;
+    border-radius: 25px;
+}
+
+body#game_indexpage th {
+    text-align: left;
+    background-color: slategrey;
+    color: #F9F3F4;
+    height: 50px;
+    text-align: center;
+
+}
+
+body#game_indexpage table, th, td {
+    border: 1px solid black;
+    text-align: center;
+    height: 50px;
+}
+
+body#game_indexpage table tr td a {
+    color: #2CB463;
+}
+
+/*END OF GAME INDEX PAGE*/
+
+
+/*RESPONSIVE STYLE*/
 
 @media screen and (max-width: 768px){
   .content h1{
@@ -196,3 +255,5 @@ body#profilepage .game_links_btn a:hover{
   .handle{
     display: block;
   }
+
+  /*END OF RESPONSIVE STYLE*/
