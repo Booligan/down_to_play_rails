@@ -49,4 +49,8 @@ class Game < ApplicationRecord
     self.joined_players.delete(player)
   end
 
+  def self.filter_by(sport)
+    where(sport_id: sport)
+  end
+
 end
