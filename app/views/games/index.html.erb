@@ -15,7 +15,7 @@
         <tr>
           <td> <%= link_to game.title, game_path(game) %> </td>
           <td><%= game.sport_name %></td>
-          <td><%= game.planner_email %></td>
+          <td><%= link_to game.planner_email, user_path(game.planner) %></td>
           <% case %>
             <% when game.players_needed <= 3 %>
               <td style="color:yellow"><%= "#{game.players_needed} players needed." %></td>
