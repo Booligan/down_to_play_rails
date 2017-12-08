@@ -22,9 +22,9 @@
               <% when game.players_needed == 0 %>
                 <td style="color:red"><%= "Game is Full" %></td>
               <% when game.players_needed <= 3 %>
-                <td style="color:yellow"><%= "#{game.players_needed} players needed." %></td>
+                <td style="color:yellow"><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
               <% else%>
-                  <td><%= "#{game.players_needed} players needed." %></td>
+                  <td><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
             <% end %>
           </tr>
         <% end %>
@@ -49,9 +49,9 @@
               <% when game.players_needed == 0 %>
                 <td style="color:red"><%= "Game is Full" %></td>
               <% when game.players_needed <= 3 %>
-                <td style="color:yellow"><%= "#{game.players_needed} players needed." %></td>
+                <td style="color:yellow"><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
               <% else%>
-                  <td><%= "#{game.players_needed} players needed." %></td>
+                  <td><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
             <% end %>
           </tr>
         <% end %>
@@ -76,9 +76,9 @@
               <% when game.players_needed == 0 %>
                 <td style="color:red"><%= "Game is Full" %></td>
               <% when game.players_needed <= 3 %>
-                <td style="color:yellow"><%= "#{game.players_needed} players needed." %></td>
+                <td style="color:yellow"><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
               <% else%>
-                  <td><%= "#{game.players_needed} players needed." %></td>
+                  <td><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
             <% end %>
           </tr>
         <% end %>

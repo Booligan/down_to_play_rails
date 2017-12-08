@@ -12,9 +12,9 @@
         <% when @game.players_needed == 0 %>
           <h2 style="color:red"><%= "Game is Full" %></h2>
         <% when @game.players_needed <= 3 %>
-          <h2 style="color:yellow"><%= "#{@game.players_needed} players needed" %></h2>
+          <h2 style="color:yellow"><%= "#{pluralize(@game.players_needed, "player")} needed" %></h2>
         <% else%>
-            <h2><%= "#{@game.players_needed} players needed" %></h2>
+            <h2><%= "#{pluralize(@game.players_needed, "player")} needed" %></h2>
       <% end %>
       <h2><%= "Notes: #{@game.notes}" %></h2>
     </div>
