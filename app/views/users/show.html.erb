@@ -6,9 +6,8 @@
 
     <div class="game_links">
       <h2>Planed Games</h2>
-      <% @user.games.each do |game| %>
-        <div><%= link_to game.title, game_path(game) %></div>
-      <% end %>
+
+      <div><%= link_to "Planned Games", user_games_path(@user) %></div>
     </div>
 
     <div class="game_links">

@@ -1,7 +1,11 @@
 <body id="game_indexpage">
   <div class="container">
     <div class="header">
+      <% if @user %>
+      <h1>Planned Games</h1>
+      <% else %>
         <h1>All Games</h1>
+      <% end %>
     </div>
 
     <fieldset>

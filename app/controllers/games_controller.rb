@@ -2,12 +2,16 @@ class GamesController < ApplicationController
   before_action :find_game, only: [:show, :update, :join, :leave, :destroy]
 
   def index
-    @today_games = Game.today
-    @future_games = Game.future
-    @old_games = Game.old
-  end
-
-  def show
+    if params[:user_id]
+      @user = User.find_by(id: params[:user_id])
+      @today_games = Game.today.by_user(@user)
+      @future_games = Game.future.by_user(@user)
+      @old_games = Game.old.by_user(@user)
+    else
+      @today_games = Game.today
+      @future_games = Game.future
+      @old_games = Game.old
+    end
   end
 
   def new
@@ -22,9 +26,10 @@ class GamesController < ApplicationController
   end
 
   def create
+    @user = User.find_by(params[:user_id])
     @game = Game.new(game_params)
     if @game.save
-      redirect_to game_path(@game), notice: "Successfully planned a Game"
+      redirect_to user_game_path(@user,@game), notice: "Successfully planned a Game"
     else
       render 'new'
     end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index] do
     resources :games, only: [:show, :index, :new, :edit]
+    get '/joined_games', to: 'games#join', as: 'joined_game'
   end
 
   resources :games

@@ -58,4 +58,8 @@ class Game < ApplicationRecord
     where("DATE(start_date) < ?", Date.today)
   end
 
+  def self.by_user(user)
+    where("planner_id == ?", user)
+  end
+
 end
