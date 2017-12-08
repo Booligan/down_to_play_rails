@@ -615,7 +615,7 @@ body#show_game_page .container #game_info h2{
   border: solid 3px;
   border-color: white;
   padding: 4%;
-  width: 250%;
+  width: 100%;
   padding-bottom: 25%;
 }
 

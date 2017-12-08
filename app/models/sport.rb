@@ -3,6 +3,8 @@ class Sport < ApplicationRecord
 
   validate :sport_is_not_on_the_list, :sport_is_a_valid_format, on: :create
 
+  before_save :make_uppercase
+
   private
 
   def sport_is_not_on_the_list
@@ -15,6 +17,10 @@ class Sport < ApplicationRecord
     if name =~ /[^a-zA-Z]/
       errors.add(:name, "is not a valid name. It only accepts alphabet letters.")
     end
+  end
+
+  def make_uppercase
+    self.name.upcase!
   end
 
 end
