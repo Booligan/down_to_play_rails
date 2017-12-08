@@ -2,7 +2,9 @@ class GamesController < ApplicationController
   before_action :find_game, only: [:show, :update, :join, :leave, :destroy]
 
   def index
-    @games = Game.all
+    @today_games = Game.today
+    @future_games = Game.future
+    @old_games = Game.old
   end
 
   def show

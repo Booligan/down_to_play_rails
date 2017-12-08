@@ -49,8 +49,16 @@ class Game < ApplicationRecord
     self.joined_players.delete(player)
   end
 
-  def self.filter_by(sport)
-    where(sport_id: sport)
+  def self.today
+    where("DATE(start_date) == ?", Date.today)
+  end
+
+  def self.future
+    where("DATE(start_date) > ?", Date.today)
+  end
+
+  def self.old
+    where("DATE(start_date) < ?", Date.today)
   end
 
 end

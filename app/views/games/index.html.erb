@@ -4,28 +4,86 @@
         <h1>All Games</h1>
     </div>
 
-    <table style="width:100%">
-      <tr>
-        <th>Title</th>
-        <th>Sport</th>
-        <th>Planner</th>
-        <th>Players needed</th>
-      </tr>
-        <% @games.each do |game| %>
+    <fieldset>
+      <legend>Today's Games</legend>
+      <table style="width:100%">
         <tr>
-          <td> <%= link_to game.title, game_path(game) %> </td>
-          <td><%= game.sport_name %></td>
-          <td><%= link_to game.planner_email, user_path(game.planner) %></td>
-          <% case %>
-            <% when game.players_needed <= 3 %>
-              <td style="color:yellow"><%= "#{game.players_needed} players needed." %></td>
-            <% when game.players_needed == 'Game is full.'%>
-              <td style="color:red"><%= game.players_needed %></td>
-            <% else%>
-                <td><%= "#{game.players_needed} players needed." %></td>
-          <% end %>
+          <th>Title</th>
+          <th>Sport</th>
+          <th>Planner</th>
+          <th>Players needed</th>
         </tr>
-      <% end %>
-    </table>
+          <% @today_games.each do |game| %>
+          <tr>
+            <td> <%= link_to game.title, game_path(game) %> </td>
+            <td><%= game.sport_name %></td>
+            <td><%= link_to game.planner_email, user_path(game.planner) %></td>
+            <% case %>
+              <% when game.players_needed <= 3 %>
+                <td style="color:yellow"><%= "#{game.players_needed} players needed." %></td>
+              <% when game.players_needed == 'Game is full.'%>
+                <td style="color:red"><%= game.players_needed %></td>
+              <% else%>
+                  <td><%= "#{game.players_needed} players needed." %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </fieldset><br /><br />
+
+    <fieldset>
+      <legend>Future Games</legend>
+      <table style="width:100%">
+        <tr>
+          <th>Title</th>
+          <th>Sport</th>
+          <th>Planner</th>
+          <th>Players needed</th>
+        </tr>
+          <% @future_games.each do |game| %>
+          <tr>
+            <td> <%= link_to game.title, game_path(game) %> </td>
+            <td><%= game.sport_name %></td>
+            <td><%= link_to game.planner_email, user_path(game.planner) %></td>
+            <% case %>
+              <% when game.players_needed <= 3 %>
+                <td style="color:yellow"><%= "#{game.players_needed} players needed." %></td>
+              <% when game.players_needed == 'Game is full.'%>
+                <td style="color:red"><%= game.players_needed %></td>
+              <% else%>
+                  <td><%= "#{game.players_needed} players needed." %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </fieldset><br /><br /><br /><br /><br /><br /><br /><hr><br />
+
+    <fieldset>
+      <legend>Old Games</legend>
+      <table style="width:100%">
+        <tr>
+          <th>Title</th>
+          <th>Sport</th>
+          <th>Planner</th>
+          <th>Players needed</th>
+        </tr>
+          <% @old_games.each do |game| %>
+          <tr>
+            <td> <%= link_to game.title, game_path(game) %> </td>
+            <td><%= game.sport_name %></td>
+            <td><%= link_to game.planner_email, user_path(game.planner) %></td>
+            <% case %>
+              <% when game.players_needed <= 3 %>
+                <td style="color:yellow"><%= "#{game.players_needed} players needed." %></td>
+              <% when game.players_needed == 'Game is full.'%>
+                <td style="color:red"><%= game.players_needed %></td>
+              <% else%>
+                  <td><%= "#{game.players_needed} players needed." %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </fieldset><br />
+
   </div>
 </body>
