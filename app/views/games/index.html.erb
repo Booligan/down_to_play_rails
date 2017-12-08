@@ -1,105 +1,29 @@
 <body id="game_indexpage">
   <div class="container">
-    <div class="header">
-      <% if @user %>
-      <h1>Planned Games</h1>
+      <% if !@user%>
+        <div class="links">
+        <%= link_to "All Games", games_path %>
+        <%= link_to "Today's Games", today_games_games_path %>
+        <%= link_to "Future Games", future_games_games_path %>
+        <%= link_to "Past Games", past_games_games_path %>
       <% else %>
-        <h1>All Games</h1>
+        <%= link_to "Back", user_path(@user) %>
       <% end %>
     </div>
-
+    <br /><br />
+    <div class="table">
     <fieldset>
-      <legend>Today's Games</legend>
-      <table style="width:100%">
-        <tr>
-          <th>Title</th>
-          <th>Sport</th>
-          <th>Planner</th>
-          <th>Players needed</th>
-        </tr>
-          <% @today_games.each do |game| %>
+      <legend>Games</legend>
+        <table style="width:100%">
           <tr>
-            <%if @user%>
-              <td> <%= link_to game.title, user_game_path(@user, game) %> </td>
-            <% else %>
-              <td> <%= link_to game.title, game_path(game) %> </td>
-            <% end %>
-            <td><%= game.sport_name %></td>
-            <td><%= link_to game.planner_email, user_path(game.planner) %></td>
-            <% case %>
-              <% when game.players_needed == 0 %>
-                <td style="color:red"><%= "Game is Full" %></td>
-              <% when game.players_needed <= 3 %>
-                <td style="color:yellow"><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
-              <% else%>
-                  <td><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
-            <% end %>
+            <th>Title</th>
+            <th>Sport</th>
+            <th>Planner</th>
+            <th>Players needed</th>
           </tr>
-        <% end %>
-      </table>
-    </fieldset><br /><br />
-
-    <fieldset>
-      <legend>Future Games</legend>
-      <table style="width:100%">
-        <tr>
-          <th>Title</th>
-          <th>Sport</th>
-          <th>Planner</th>
-          <th>Players needed</th>
-        </tr>
-          <% @future_games.each do |game| %>
-          <tr>
-            <%if @user%>
-              <td> <%= link_to game.title, user_game_path(@user, game) %> </td>
-            <% else %>
-              <td> <%= link_to game.title, game_path(game) %> </td>
-            <% end %>
-            <td><%= game.sport_name %></td>
-            <td><%= link_to game.planner_email, user_path(game.planner) %></td>
-            <% case %>
-              <% when game.players_needed == 0 %>
-                <td style="color:red"><%= "Game is Full" %></td>
-              <% when game.players_needed <= 3 %>
-                <td style="color:yellow"><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
-              <% else%>
-                  <td><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
-            <% end %>
-          </tr>
-        <% end %>
-      </table>
-    </fieldset><br /><br /><br /><br /><br /><br /><br /><hr><br />
-
-    <fieldset>
-      <legend>Old Games</legend>
-      <table style="width:100%">
-        <tr>
-          <th>Title</th>
-          <th>Sport</th>
-          <th>Planner</th>
-          <th>Players needed</th>
-        </tr>
-          <% @old_games.each do |game| %>
-          <tr>
-            <%if @user%>
-              <td> <%= link_to game.title, user_game_path(@user, game) %> </td>
-            <% else %>
-              <td> <%= link_to game.title, game_path(game) %> </td>
-            <% end %>
-            <td><%= game.sport_name %></td>
-            <td><%= link_to game.planner_email, user_path(game.planner) %></td>
-            <% case %>
-              <% when game.players_needed == 0 %>
-                <td style="color:red"><%= "Game is Full" %></td>
-              <% when game.players_needed <= 3 %>
-                <td style="color:yellow"><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
-              <% else%>
-                  <td><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
-            <% end %>
-          </tr>
-        <% end %>
-      </table>
-    </fieldset><br />
-
+            <%= render partial: 'games', collection: @games, as: :game %>
+        </table>
+      </fieldset><br />
+    </div>
   </div>
 </body>

@@ -41,6 +41,28 @@ nav ul li a{
   color: inherit;
 }
 
+nav ul .no_hover li:hover{
+  color: #F9F3F4;
+}
+
+nav ul li.no_hover:hover{
+  color: #F9F3F4;
+}
+
+nav ul a.logo.no_hover li span.grey_to{
+  color: #4f6777;
+  font-size: 1.3em;
+}
+
+nav ul a.logo li:hover{
+  color: #F9F3F4;
+}
+
+nav ul a.logo li span.grey_to{
+  color: #4f6777;
+  font-size: 1.3em;
+}
+
 /*END OF NAVBAR*/
 
 /*HOME PAGE*/
@@ -160,19 +182,48 @@ body#profilepage {
 }
 
 body#profilepage .container {
-  display: inline-block;
-  margin-left: 33.33%;
   color: #F9F3F4;
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
-  border: solid;
-  border-radius: 25px;
-  margin-top: 15px;
-  padding: 20px;
 }
 
-body#profilepage .container h2 {
+body#profilepage .container h1 {
+  color: #F9F3F4;
+  text-align: center;
+}
+
+body#profilepage .container table {
+  display: block;
+  margin-top: 10%;
+  margin-left: 40%;
+}
+
+body#profilepage .container table th{
+  background-color: slategray;
+}
+
+body#profilepage .container table td{
+  background-color: #F9F3F4;
   color: #2CB463;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase
+}
+
+body#profilepage .container table td a{
+  text-decoration: none;
+  color: #2CB463;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase
+}
+
+body#profilepage .container table td small{
+  color: slategray;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase
+}
+
+body#profilepage .game_links {
+  margin-left: 30%;
 }
 
 body#profilepage .game_links a{
@@ -230,13 +281,18 @@ body#game_indexpage .container h1 {
   margin-left: 50px;
 }
 
-body#game_indexpage table {
+body#game_indexpage .container .links a {
+  color: #F9F3F4;
+  margin-right: 1%;
+}
+
+body#game_indexpage .table fieldset table {
     border-collapse: collapse;
     border: solid;
     border-radius: 25px;
 }
 
-body#game_indexpage th {
+body#game_indexpage .table fieldset tr th {
     text-align: left;
     background-color: slategrey;
     color: #F9F3F4;
@@ -245,17 +301,17 @@ body#game_indexpage th {
 
 }
 
-body#game_indexpage table, th, td {
+body#game_indexpage .table fieldset table, th, td {
     border: 1px solid black;
     text-align: center;
     height: 50px;
 }
 
-body#game_indexpage table tr td a {
+body#game_indexpage .table fieldset table tr td a {
     color: #2CB463;
 }
 
-body#game_indexpage table tr td a:hover {
+body#game_indexpage .table fieldset table tr td a:hover {
     color: #F9F3F4;
 }
 
@@ -532,16 +588,20 @@ body#edit_game_page .container .edit_game .field #game_notes {
 }
 
 body#edit_game_page .container .edit_game #submit input {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Oswald', sans-serif;
   border-radius: 30px;
   border: solid 3px;
   border-color: #F9F3F4;
   background-color: #2CB463;
   color: #F9F3F4;
-  padding: 4%;
+  padding: 1%;
+  padding-left: 5%;
+  padding-right: 5%;
   text-transform: uppercase;
   float: right;
   cursor: pointer;
+  font-weight: bold;
+}
 }
 
 body#edit_game_page .container .edit_game .field label {
@@ -549,21 +609,19 @@ body#edit_game_page .container .edit_game .field label {
 }
 
 body#edit_game_page .container a {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Oswald', sans-serif;
   text-decoration: none;
   display: inline-block;
   float: left;
   margin-right: 10px;
   margin-left: 30px;
   border: solid 3px;
-  padding: 6px;
+
   border-radius: 20px;
   background-color: #2CB463;
   color: #F9F3F4;
   width: 26%;
-  padding-left: 2%;
-  padding-bottom: 0%;
-  padding-top: 4%;
+
   height: 26px;
   text-align: center;
 }
@@ -646,7 +704,7 @@ body#show_game_page .container .left_button .green_button.bttn{
 }
 
 body#show_game_page .container .left_button .green_button.bttn a{
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Oswald', sans-serif;
   text-decoration: none;
   display: inline-block;
   float: left;
@@ -663,7 +721,7 @@ body#show_game_page .container .left_button .green_button.bttn a{
 }
 
 body#show_game_page .container .right_button .white_button.bttn a{
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Oswald', sans-serif;
   text-decoration: none;
   display: inline-block;
   float: left;
@@ -678,7 +736,7 @@ body#show_game_page .container .right_button .white_button.bttn a{
 }
 
 body#show_game_page .container .right_button .red_button.bttn a{
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Oswald', sans-serif;
   text-decoration: none;
   display: inline-block;
   float: right;
@@ -694,7 +752,7 @@ body#show_game_page .container .right_button .red_button.bttn a{
 }
 
 body#show_game_page .container .right_button .gray_button.bttn a{
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Oswald', sans-serif;
   text-decoration: none;
   display: inline-block;
   float: right;

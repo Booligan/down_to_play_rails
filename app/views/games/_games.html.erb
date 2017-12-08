@@ -1,0 +1,17 @@
+<tr>
+<%if @user%>
+  <td> <%= link_to game.title, user_game_path(@user, game) %> </td>
+<% else %>
+  <td> <%= link_to game.title, game_path(game) %> </td>
+<% end %>
+<td><%= game.sport_name %></td>
+<td><%= link_to game.planner_email, user_path(game.planner) %></td>
+<% case %>
+  <% when game.players_needed == 0 %>
+    <td style="color:red"><%= "Game is Full" %></td>
+  <% when game.players_needed <= 3 %>
+    <td style="color:yellow"><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
+  <% else%>
+    <td><%= "#{pluralize(game.players_needed, "player")} needed" %></td>
+<% end %>
+</tr>

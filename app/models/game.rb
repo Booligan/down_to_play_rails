@@ -54,7 +54,7 @@ class Game < ApplicationRecord
     where("DATE(start_date) > ?", Date.today)
   end
 
-  def self.old
+  def self.past
     where("DATE(start_date) < ?", Date.today)
   end
 

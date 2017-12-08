@@ -5,10 +5,17 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index] do
     resources :games, only: [:show, :index, :new, :edit]
-    get '/joined_games', to: 'games#join', as: 'joined_game'
   end
 
-  resources :games
+  resources :games do
+    collection do
+      get 'today_games', to: 'games#today'
+      get 'past_games', to: 'games#past'
+      get 'future_games', to: 'games#future'
+    end
+  end
+
+
 
   get '/games/:id/join', to: 'games#join', as: 'join_game'
   get '/games/:id/leave', to: 'games#leave', as: 'leave_game'

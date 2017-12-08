@@ -4,13 +4,9 @@ class GamesController < ApplicationController
   def index
     if params[:user_id]
       @user = User.find_by(id: params[:user_id])
-      @today_games = Game.today.by_user(@user)
-      @future_games = Game.future.by_user(@user)
-      @old_games = Game.old.by_user(@user)
+      @games = @user.games
     else
-      @today_games = Game.today
-      @future_games = Game.future
-      @old_games = Game.old
+      @games = Game.all
     end
   end
 
@@ -89,6 +85,21 @@ class GamesController < ApplicationController
     else
         redirect_to game_path(@game), notice: "Can not leave a game without joining."
     end
+  end
+
+  def today
+    @games = Game.today
+    render :index
+  end
+
+  def future
+    @games = Game.future
+    render :index
+  end
+
+  def past
+    @games = Game.past
+    render :index
   end
 
   private
