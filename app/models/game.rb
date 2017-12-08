@@ -6,6 +6,8 @@ class Game < ApplicationRecord
 
   validates :location, length: { minimum: 5 }
   validates :title, length: { minimum: 5 }
+  validates :sport, presence: true
+  validates :max_players, presence: true
   validates :start_date, presence: true
   validates :start_time, presence: true
 
@@ -25,7 +27,7 @@ class Game < ApplicationRecord
   end
 
   def current_number_of_players
-    self.joined_players.count + 1
+    self.joined_players.count
   end
 
   def full?
@@ -33,12 +35,7 @@ class Game < ApplicationRecord
   end
 
   def players_needed
-    if !full?
-      players_needed = self.max_players - self.current_number_of_players
-      players_needed
-    else
-      "Game is full."
-    end
+    self.max_players - self.current_number_of_players
   end
 
   def join_game(player)

@@ -19,10 +19,10 @@
             <td><%= game.sport_name %></td>
             <td><%= link_to game.planner_email, user_path(game.planner) %></td>
             <% case %>
+              <% when game.players_needed == 0 %>
+                <td style="color:red"><%= "Game is Full" %></td>
               <% when game.players_needed <= 3 %>
                 <td style="color:yellow"><%= "#{game.players_needed} players needed." %></td>
-              <% when game.players_needed == 'Game is full.'%>
-                <td style="color:red"><%= game.players_needed %></td>
               <% else%>
                   <td><%= "#{game.players_needed} players needed." %></td>
             <% end %>
@@ -46,10 +46,10 @@
             <td><%= game.sport_name %></td>
             <td><%= link_to game.planner_email, user_path(game.planner) %></td>
             <% case %>
+              <% when game.players_needed == 0 %>
+                <td style="color:red"><%= "Game is Full" %></td>
               <% when game.players_needed <= 3 %>
                 <td style="color:yellow"><%= "#{game.players_needed} players needed." %></td>
-              <% when game.players_needed == 'Game is full.'%>
-                <td style="color:red"><%= game.players_needed %></td>
               <% else%>
                   <td><%= "#{game.players_needed} players needed." %></td>
             <% end %>
@@ -73,10 +73,10 @@
             <td><%= game.sport_name %></td>
             <td><%= link_to game.planner_email, user_path(game.planner) %></td>
             <% case %>
+              <% when game.players_needed == 0 %>
+                <td style="color:red"><%= "Game is Full" %></td>
               <% when game.players_needed <= 3 %>
                 <td style="color:yellow"><%= "#{game.players_needed} players needed." %></td>
-              <% when game.players_needed == 'Game is full.'%>
-                <td style="color:red"><%= game.players_needed %></td>
               <% else%>
                   <td><%= "#{game.players_needed} players needed." %></td>
             <% end %>
