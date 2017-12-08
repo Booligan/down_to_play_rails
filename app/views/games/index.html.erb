@@ -19,7 +19,11 @@
         </tr>
           <% @today_games.each do |game| %>
           <tr>
-            <td> <%= link_to game.title, game_path(game) %> </td>
+            <%if @user%>
+              <td> <%= link_to game.title, user_game_path(@user, game) %> </td>
+            <% else %>
+              <td> <%= link_to game.title, game_path(game) %> </td>
+            <% end %>
             <td><%= game.sport_name %></td>
             <td><%= link_to game.planner_email, user_path(game.planner) %></td>
             <% case %>
@@ -46,7 +50,11 @@
         </tr>
           <% @future_games.each do |game| %>
           <tr>
-            <td> <%= link_to game.title, game_path(game) %> </td>
+            <%if @user%>
+              <td> <%= link_to game.title, user_game_path(@user, game) %> </td>
+            <% else %>
+              <td> <%= link_to game.title, game_path(game) %> </td>
+            <% end %>
             <td><%= game.sport_name %></td>
             <td><%= link_to game.planner_email, user_path(game.planner) %></td>
             <% case %>
@@ -73,7 +81,11 @@
         </tr>
           <% @old_games.each do |game| %>
           <tr>
-            <td> <%= link_to game.title, game_path(game) %> </td>
+            <%if @user%>
+              <td> <%= link_to game.title, user_game_path(@user, game) %> </td>
+            <% else %>
+              <td> <%= link_to game.title, game_path(game) %> </td>
+            <% end %>
             <td><%= game.sport_name %></td>
             <td><%= link_to game.planner_email, user_path(game.planner) %></td>
             <% case %>
