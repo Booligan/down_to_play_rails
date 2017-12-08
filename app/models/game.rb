@@ -3,10 +3,10 @@ class Game < ApplicationRecord
   belongs_to :planner, :class_name => "User", :foreign_key => "planner_id"
   has_many :user_joined_games, :foreign_key => 'joined_game_id'
   has_many :joined_players, through: :user_joined_games
+  accepts_nested_attributes_for :sport
 
   validates :location, length: { minimum: 5 }
   validates :title, length: { minimum: 5 }
-  validates :sport, presence: true
   validates :max_players, presence: true
   validates :start_date, presence: true
   validates :start_time, presence: true

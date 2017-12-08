@@ -2,7 +2,7 @@
   <div class="container">
     <%= render 'layouts/show_buttons.html.erb' %>
     <br /><h1><%= @game.title %></h1>
-    <small id="sport_name"><%= "Sport: #{@game.sport.name}" %></small><br />
+    <small id="sport_name"><%= "Sport: #{@game.sport_name}" %></small><br />
     <div id="game_info">
       <br /><%= render 'layouts/errors_html.erb' %>
       <h2><%= "Location: #{@game.location}" %></h2>

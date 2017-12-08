@@ -20,18 +20,18 @@
   </div>
 
   <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder:"Title" %>
+  </div><br /><br />
+
+  <div class="field">
     <%= f.label :location %>
     <%= f.text_field :location, placeholder:"Location" %>
   </div>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, placeholder:"Title" %>
-  </div>
-
-  <div class="field">
     <%= f.label :max_players %>
-    <%= f.number_field :max_players, min: 0, max: 50, placeholder: 10 %>
+    <%= f.number_field :max_players, min: 1, max: 50, placeholder: 10 %>
   </div>
 
   <div class="field">
