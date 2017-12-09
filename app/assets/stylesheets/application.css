@@ -276,14 +276,40 @@ body#game_indexpage .container {
   margin-top: 30px;
 }
 
+body#game_indexpage .container a{
+  color: #F9F3F4;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-left: 5%;
+}
+
+body#game_indexpage .container a:hover{
+  color: #2CB463;
+}
+
 body#game_indexpage .container h1 {
   color: #F9F3F4;
   margin-left: 50px;
 }
 
+body#game_indexpage .container .links {
+  margin-left: 30%;
+}
+
 body#game_indexpage .container .links a {
   color: #F9F3F4;
   margin-right: 1%;
+}
+
+body#game_indexpage .container .links a:hover {
+  color: #2CB463;
+}
+
+body#game_indexpage .table fieldset legend {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  color: #F9F3F4;
 }
 
 body#game_indexpage .table fieldset table {
@@ -293,16 +319,19 @@ body#game_indexpage .table fieldset table {
 }
 
 body#game_indexpage .table fieldset tr th {
-    text-align: left;
     background-color: slategrey;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
     color: #F9F3F4;
     height: 50px;
     text-align: center;
-
 }
 
 body#game_indexpage .table fieldset table, th, td {
     border: 1px solid black;
+    font-family: 'Oswald', sans-serif;
+    color: #F9F3F4;
+    text-transform: uppercase;
     text-align: center;
     height: 50px;
 }
