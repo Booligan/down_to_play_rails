@@ -1,28 +1,22 @@
-# README
-#TEST ALBERTO MAYANGA
+# DownToPlay
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Usage
 
-Things you may want to cover:
+Downtoplay is on a mission to create a more active world and to connect people
+through the power of pickup games. Users set up a profile. From
+there, users can meet players around them and set up games.
 
-* Ruby version
+### Installation
 
-* System dependencies
+Simply clone this repository,
 
-* Configuration
+Then execute
 
-* Database creation
+  bundle install
+Then run
 
-* Database initialization
+$ rake db:migrate
+From there, run
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# down-to-play-rails
-# down-to-play-rails
-# down-to-play-rails
+$ rails s
+Enter http://localhost:3000 into your browser window. From there you can create an account and start to plan and join games!
