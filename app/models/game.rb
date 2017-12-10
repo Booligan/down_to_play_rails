@@ -5,6 +5,7 @@ class Game < ApplicationRecord
   has_many :joined_players, through: :user_joined_games
   accepts_nested_attributes_for :sport
 
+  
   validates :location, length: { minimum: 5 }
   validates :title, length: { minimum: 5 }
   validates :max_players, presence: true

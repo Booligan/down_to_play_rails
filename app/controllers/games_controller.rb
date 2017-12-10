@@ -27,6 +27,7 @@ class GamesController < ApplicationController
     if @game.save
       redirect_to user_game_path(@user,@game), notice: "Successfully planned a Game"
     else
+      @game.build_sport
       render 'new'
     end
   end

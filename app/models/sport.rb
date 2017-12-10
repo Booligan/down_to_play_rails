@@ -1,6 +1,7 @@
 class Sport < ApplicationRecord
   has_many :games
 
+  validates :name, presence: true
   validate :sport_is_not_on_the_list, :sport_is_a_valid_format, on: :create
 
   before_save :make_uppercase
