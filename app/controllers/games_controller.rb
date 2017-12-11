@@ -11,13 +11,17 @@ class GamesController < ApplicationController
   end
 
   def new
-    if params[:user_id] && !User.exists?(params[:user_id])
-      redirect_to user_path, alert: "User not found."
-    elsif params[:user_id] && params[:user_id].to_i != current_user.id
-      redirect_to user_path(current_user)
+    if logged_in?
+      if params[:user_id] && !User.exists?(params[:user_id])
+        redirect_to user_path, alert: "User not found."
+      elsif params[:user_id] && params[:user_id].to_i != current_user.id
+        redirect_to user_path(current_user)
+      else
+        @game = Game.new(planner_id: params[:user_id])
+        @game.build_sport
+      end
     else
-      @game = Game.new(planner_id: params[:user_id])
-      @game.build_sport
+      redirect_to new_user_session_path
     end
   end
 

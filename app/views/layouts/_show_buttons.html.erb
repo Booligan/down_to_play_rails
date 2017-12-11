@@ -18,18 +18,20 @@
       <%= link_to "All games", games_path%>
     </div>
   </div>
-  <div class="right_button">
-    <div class="gray_button bttn">
-      <%= link_to "Leave Game", leave_game_path(@game)%>
-    </div>
-  </div>
+    <% if !Game.past.include?(@game) %>
+      <div class="right_button">
+        <div class="gray_button bttn">
+          <%= link_to "Leave Game", leave_game_path(@game)%>
+        </div>
+      </div>
+    <% end %>
   <% else%>
   <div class="left_button">
     <div class="green_button bttn">
       <%= link_to "All Games", games_path%>
     </div>
   </div>
-    <% if !@game.full?%>
+    <% if !@game.full? && !Game.past.include?(@game) %>
     <div class="right_button">
       <div class="white_button bttn">
         <%= link_to "Join Game", join_game_path(@game)%>
