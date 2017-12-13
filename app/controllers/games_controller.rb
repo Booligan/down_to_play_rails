@@ -57,6 +57,7 @@ class GamesController < ApplicationController
     if @game.update(game_params)
       redirect_to game_path(@game), notice: "Game was successfully updated"
     else
+      @game.build_sport
       render 'edit'
     end
   end
