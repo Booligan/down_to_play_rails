@@ -32,7 +32,7 @@ rails s
 ```
 Navigate on a browser to: http://localhost:3000
 
-### Contributors guide
+### Contributors
 
 Creating an issue:
 
@@ -41,6 +41,6 @@ Click 'New issue'
 Type a title and description for your issue.
 When you're finished, click Submit new issue.
 
-###License
+### License
 
 Copyright <2017> <Alberto Mayanga>, See LICENSE for details
