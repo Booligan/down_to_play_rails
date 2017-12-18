@@ -43,4 +43,4 @@ When you're finished, click Submit new issue.
 
 ## License
 
-Copyright <2017> <Alberto Mayanga>, See LICENSE for details
+Copyright (c) 2017 Alberto Mayanga, See [LICENSE](https://github.com/Booligan/down_to_play_rails/blob/master/LICENSE.md) for details.
