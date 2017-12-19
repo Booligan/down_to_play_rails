@@ -294,7 +294,7 @@ body#game_indexpage .container h1 {
 }
 
 body#game_indexpage .container form select#sport_id {
-  margin-left: 5%;
+  margin-left: 20%;
   color: #2CB463;
   background-color: white;
   border-radius: 17px;

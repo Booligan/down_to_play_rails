@@ -6,11 +6,7 @@
         <%= link_to "Today's Games", today_games_games_path %>
         <%= link_to "Future Games", future_games_games_path %>
         <%= link_to "Past Games", past_games_games_path %>
-        <% else %>
-          <%= link_to "Back", user_path(@user) %>
-        <% end %>
-        </div>
-
+        <br><br>
         <div class="filter">
           <%= form_tag '', :method => :get do%>
             <%= collection_select :sport, :id, Sport.all, :id, :name, include_blank: "FILTER BY SPORT" %>
@@ -18,7 +14,10 @@
           <% end %>
         </div>
 
-
+        <% else %>
+          <%= link_to "Back", user_path(@user) %>
+        <% end %>
+        </div>
     <br /><br />
     <div class="table">
     <fieldset>
