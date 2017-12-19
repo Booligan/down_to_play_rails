@@ -5,6 +5,9 @@ class GamesController < ApplicationController
     if params[:user_id]
       @user = User.find_by(id: params[:user_id])
       @games = @user.games
+    elsif params[:sport]
+      @sport = Sport.find_by(id: params[:sport][:id])
+      @games = @sport.games
     else
       @games = Game.all
     end
@@ -111,15 +114,15 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:location,
-                                 :title,
-                                 :notes,
-                                 :max_players,
-                                 :start_date,
-                                 :start_time,
-                                 :sport_id,
-                                 :planner_id,
-                                 sport_attributes:[:name])
+      params.require(:game).permit(:location,
+                                   :title,
+                                   :notes,
+                                   :max_players,
+                                   :start_date,
+                                   :start_time,
+                                   :sport_id,
+                                   :planner_id,
+                                   sport_attributes:[:name])
   end
 
   def find_game
