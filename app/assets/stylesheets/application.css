@@ -193,9 +193,8 @@ body#profilepage .container h1 {
 }
 
 body#profilepage .container table {
-  display: block;
-  margin-top: 10%;
-  margin-left: 40%;
+  margin-top: 12%;
+  margin-left: 5%;
 }
 
 body#profilepage .container table th{

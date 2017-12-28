@@ -32,7 +32,13 @@ function getPlannedGames(userID){
 
   $.get(`/users/${userID}/games.json`, function(games){
     console.log(games)
-    $('table-header').text("My Planned Games")
+    $('#table-header').append('My Planned Games')
+    $('#table-columns').append('<th>Title</th><th>Sport</th><th>Planner</th><th>Players needed</th>')
+
+    games.forEach(function(game){
+      $('table').append(`<tr><td>${game.title}</td><td>${game.sport.name}</td><td>${game.planner.email}</td></tr>`)
+    })
+
   })
 
 };
