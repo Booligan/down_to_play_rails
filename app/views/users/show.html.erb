@@ -6,25 +6,25 @@
     <div class="game_links">
     <% if @user == current_user%>
       <div class="game_links_btn">
-        <%= link_to "Planned Games", user_games_path(@user) %>
+        <%= link_to "Planned Games", user_games_path(@user), id:"planned-games" %>
       </div>
       <div class="game_links_btn">
-        <%= link_to "Joined Games", user_games_path(@user) %>
+        <%= link_to "Joined Games", '#', id:"joined-games" %>
       </div>
       <div class="game_links_btn">
-        <%= link_to "Plan A Game", new_user_game_path(@user) %>
+        <%= link_to "Plan A Game", new_user_game_path(@user), id:"plan-game" %>
       </div>
     <% end %>
+
+    <!-- TABLE FOR JSON -->
+
   </div>
     <table>
-      <tr>
-        <th>Joined Games</th>
+      <tr id="table-header">
       </tr>
-        <% @user.joined_games.each do |game| %>
-      <tr>
-        <td><%= link_to game.title, game_path(game) %><small><%="- by #{game.planner_email}"%></small></td>
+      <tr id="table-games">
       </tr>
-        <% end %>
     </table>
   </div>
+
 </body>
