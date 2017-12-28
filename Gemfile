@@ -37,6 +37,8 @@ gem 'devise', '~> 4.3'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+gem 'active_model_serializers'
+
 
 
 group :development, :test do

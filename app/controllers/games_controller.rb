@@ -39,6 +39,13 @@ class GamesController < ApplicationController
     end
   end
 
+  def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @game}
+    end
+  end
+
   def edit
     if params[:user_id]
       user= User.find_by(id: params[:user_id])

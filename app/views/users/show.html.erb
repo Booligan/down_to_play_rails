@@ -6,7 +6,10 @@
     <div class="game_links">
     <% if @user == current_user%>
       <div class="game_links_btn">
-        <%= link_to "My Planned Games", user_games_path(@user) %>
+        <%= link_to "Planned Games", user_games_path(@user) %>
+      </div>
+      <div class="game_links_btn">
+        <%= link_to "Joined Games", user_games_path(@user) %>
       </div>
       <div class="game_links_btn">
         <%= link_to "Plan A Game", new_user_game_path(@user) %>
