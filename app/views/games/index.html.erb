@@ -8,8 +8,8 @@
         <%= link_to "Past Games", past_games_games_path %>
         <br><br>
         <div class="filter">
-          <%= form_tag '', :method => :get do%>
-            <%= collection_select :sport, :id, Sport.all, :id, :name, include_blank: "FILTER BY SPORT" %>
+          <%= form_tag '#', :method => :get do%>
+            <%= collection_select :sport, :id, Sport.all, :id, :name, placeholder: "FILTER BY SPORT" %>
             <%= submit_tag 'Filter' %>
           <% end %>
         </div>
