@@ -1,15 +1,8 @@
-$(document).ready(function(){
-  responsive_nav();
-  bindUserPageLinks();
+$(document).on("turbolinks:load",function(){
+  attachGameListeners();
 });
 
-function responsive_nav(){
-  $('.handle').on('click', function(){
-    $('nav ul').toggleClass('showing');
-  });
-};
-
-function bindUserPageLinks(){
+function attachGameListeners(){
   $('#planned-games').on('click', function(event){
     event.preventDefault();
 
@@ -33,10 +26,17 @@ function getPlannedGames(userID){
   $.get(`/users/${userID}/games.json`, function(games){
     console.log(games)
     $('#table-header').append('My Planned Games')
-    $('#table-columns').append('<th>Title</th><th>Sport</th><th>Planner</th><th>Players needed</th>')
+    $('#table-columns').append(`<th>Title</th>
+                                <th>Sport</th>
+                                <th>Planner</th>
+                                <th>Players needed</th>`)
 
     games.forEach(function(game){
-      $('table').append(`<tr><td>${game.title}</td><td>${game.sport.name}</td><td>${game.planner.email}</td></tr>`)
+      $('table').append(`<tr>
+                          <td><a href="/users/${userID}/games/${game.id}">${game.title}</a></td>
+                          <td>${game.sport.name}</td>
+                          <td><a href="/users/${userID}">${game.planner.email}</a></td>
+                        </tr>`)
     })
 
   })
