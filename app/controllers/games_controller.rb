@@ -11,6 +11,12 @@ class GamesController < ApplicationController
     else
       @games = Game.all
     end
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @games}
+    end
+
   end
 
   def new

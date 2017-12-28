@@ -12,7 +12,9 @@ function responsive_nav(){
 function bindUserPageLinks(){
   $('#planned-games').on('click', function(event){
     event.preventDefault();
-    alert("planned games");
+
+    let userID = $('h1').attr("data-user-id")
+    getPlannedGames(userID);
   })
 
   $('#joined-games').on('click', function(event){
@@ -24,4 +26,13 @@ function bindUserPageLinks(){
     event.preventDefault();
     console.log('yoooooo')
   })
+};
+
+function getPlannedGames(userID){
+
+  $.get(`/users/${userID}/games.json`, function(games){
+    console.log(games)
+    $('table-header').text("My Planned Games")
+  })
+
 };
