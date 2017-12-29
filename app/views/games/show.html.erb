@@ -34,8 +34,8 @@
           <th>Players Joined</th>
         </tr>
           <% @game.joined_players.each do |player| %>
-          <tr>
-            <td class="game-joined-player"><%= link_to player.email, user_path(player)%></td>
+          <tr class="game-joined-player">
+            <td><%= link_to player.email, user_path(player)%></td>
           </tr>
         <% end %>
       </table>

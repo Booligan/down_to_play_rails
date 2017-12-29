@@ -42,11 +42,12 @@ function addNextGameToDOM(game){
    $('#game-notes').text(`NOTES: ${game.notes}`)
    $('#game-players-needed').text(playersNeeded)
 
+
    $('.game-joined-player').remove()
    game.joined_players.forEach(function(player){
-      $('#joined-players-table').append(`<tr>
-                                        <td class="game-joined-player"><a href="/users/${player.id}">${player.email}</a></td>
-                                      </tr>`)
+      $('#joined-players-table').append(`<tr class="game-joined-player">
+                                          <td><a href="/users/${player.id}">${player.email}</a></td>
+                                         </tr>`)
    })
 
    $('#edit-game').attr("href", `/users/${game.planner.id}/games/${game.id}/edit`)
@@ -58,7 +59,7 @@ function addNextGameToDOM(game){
 function getFormattedDate(date) {
     let newDate = new Date(date)
     let month = newDate.getMonth() + 1;
-    let day = newDate.getDate();
+    let day = newDate.getDate() + 1;
     let year = newDate.getFullYear();
     return month + "/" + day + "/" + year;
 }
