@@ -7,10 +7,10 @@
   </div>
   <div class="right_button">
     <div class="white_button bttn">
-      <%= link_to "Edit Game", edit_user_game_path(@game.planner, @game)%>
+      <%= link_to "Edit Game", edit_user_game_path(@game.planner, @game), id:"edit-game"%>
     </div>
     <div class="red_button bttn">
-      <%= link_to "Cancel Game", game_path(@game), method: :delete %>
+      <%= link_to "Cancel Game", game_path(@game), method: :delete, id:"cancel-game" %>
     </div>
   </div>
   <% elsif @game.joined_players.include?(current_user)%>

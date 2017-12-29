@@ -49,6 +49,9 @@ function addNextGameToDOM(game){
                                       </tr>`)
    })
 
+   $('#edit-game').attr("href", `/users/${game.planner.id}/games/${game.id}/edit`)
+   $('#cancel-game').attr("href", `/games/${game.id}`)
+
 
 };
 
