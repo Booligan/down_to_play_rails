@@ -7,6 +7,10 @@ function attachNextGameListener(){
     event.preventDefault();
     getNextGame()
   })
+  $('#players-joined-th').on('click', function(){
+    event.preventDefault();
+    showJoinedPlayers()
+  })
 };
 
 function getNextGame(){
@@ -45,7 +49,7 @@ function addNextGameToDOM(game){
 
    $('.game-joined-player').remove()
    game.joined_players.forEach(function(player){
-      $('#joined-players-table').append(`<tr class="game-joined-player">
+      $('#joined-players-table').append(`<tr class="game-joined-player" style="display:none">
                                           <td><a href="/users/${player.id}">${player.email}</a></td>
                                          </tr>`)
    })
@@ -89,4 +93,8 @@ function playersNeededGame(maxPlayers, joinedPlayers){
   }
 
   return message;
+};
+
+function showJoinedPlayers(){
+  $('.game-joined-player').show()
 };

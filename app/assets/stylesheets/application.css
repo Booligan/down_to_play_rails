@@ -740,6 +740,11 @@ body#show_game_page .container #joined_players table th{
   color: #F9F3F4;
 }
 
+body#show_game_page .container #joined_players table th#players-joined-th:hover{
+  background-color: #F9F3F4;
+  color: #2CB463;
+}
+
 body#show_game_page .container #joined_players table tbody tr td a{
   color: #F9F3F4;
 }
