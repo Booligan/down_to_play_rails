@@ -46,12 +46,12 @@ function addNextGameToDOM(game){
    $('#game-notes').text(`NOTES: ${game.notes}`)
    $('#game-players-needed').text(playersNeeded)
 
-
+   $('#players-joined-th').text(`Players Joined (${joinedPlayersSize})`)
    $('.game-joined-player').remove()
    game.joined_players.forEach(function(player){
-      $('#joined-players-table').append(`<tr class="game-joined-player" style="display:none">
-                                          <td><a href="/users/${player.id}">${player.email}</a></td>
-                                         </tr>`)
+      let joinedPlayer = new JoinedPlayer(player);
+      let joinedPlayerTr = joinedPlayer.generateTableRow();
+      $('#joined-players-table').append(joinedPlayerTr);
    })
 
    $('#edit-game').attr("href", `/users/${game.planner.id}/games/${game.id}/edit`)
@@ -93,6 +93,19 @@ function playersNeededGame(maxPlayers, joinedPlayers){
   }
 
   return message;
+};
+
+function JoinedPlayer(playerData){
+  this.id = playerData.id
+  this.email = playerData.email
+};
+
+JoinedPlayer.prototype.generateTableRow = function(){
+  tr = `<tr class="game-joined-player" style="display:none">
+          <td><a href="/users/${this.id}">${this.email}</a></td>
+        </tr>`
+
+  return tr;
 };
 
 function showJoinedPlayers(){

@@ -22,7 +22,7 @@
     <% if !Game.past.include?(@game) %>
       <div class="right_button">
         <div class="gray_button bttn">
-          <%= link_to "Leave Game", leave_game_path(@game)%>
+          <%= link_to "Leave Game", leave_game_path(@game), id:"leave-game"%>
         </div>
       </div>
     <% end %>
@@ -35,7 +35,7 @@
     <% if !@game.full? && !Game.past.include?(@game) %>
     <div class="right_button">
       <div class="white_button bttn">
-        <%= link_to "Join Game", join_game_path(@game)%>
+        <%= link_to "Join Game", join_game_path(@game), id:"join-game"%>
       </div>
     </div>
     <% end %>

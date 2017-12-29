@@ -31,7 +31,7 @@
 
       <table id='joined-players-table' style="width:33%">
         <tr>
-          <th id="players-joined-th">Players Joined</th>
+          <th id="players-joined-th">Players Joined (<%= @game.joined_players.size %>)</th>
         </tr>
           <% @game.joined_players.each do |player| %>
           <tr class="game-joined-player" style="display:none">
