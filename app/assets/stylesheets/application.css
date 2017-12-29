@@ -202,8 +202,8 @@ body#profilepage .container table th{
 }
 
 body#profilepage .container table td{
-  background-color: #F9F3F4;
-  color: #2CB463;
+  background-color: #CDD0CE;
+  color: #F9F3F4;
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase
 }
@@ -213,6 +213,10 @@ body#profilepage .container table td a{
   color: #2CB463;
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase
+}
+
+body#profilepage .container table td a:hover{
+  color: #F9F3F4;
 }
 
 body#profilepage .container table td small{
