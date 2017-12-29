@@ -7,6 +7,7 @@ function attachGameListeners(){
   $('#planned-games').on('click', function(event){
     event.preventDefault();
     let userID = $('h1').attr("data-user-id")
+    removeTable();
     getPlannedGames(userID);
   })
 
@@ -22,7 +23,6 @@ function attachGameListeners(){
 };
 
 function getPlannedGames(userID){
-
   $.get(`/users/${userID}/games.json`, function(games){
     console.log(games)
     $('#table-header').append('My Planned Games')
@@ -42,24 +42,28 @@ function getPlannedGames(userID){
                           ${playersNeeded}
                         </tr>`)
     })
-
   })
+};
 
-  function gameCountMessage(maxPlayers, joinedPlayers){
-    let playersNeeded = maxPlayers - joinedPlayers
-    let message = undefined
+function gameCountMessage(maxPlayers, joinedPlayers){
+  let playersNeeded = maxPlayers - joinedPlayers
+  let message = undefined
 
-    switch(true){
-      case playersNeeded === 0:
-        message = `<td style="color:red">Game is Full</td>`
-        break;
-      case playersNeeded <= 3:
-        message = `<td style="color:yellow">${playersNeeded} players needed.</td>`
-      default:
-        message = `<td style="color:white">${playersNeeded} players needed.</td>`
-    }
+  switch(true){
+    case playersNeeded === 0:
+      message = `<td style="color:red">Game is Full</td>`
+      break;
+    case playersNeeded <= 3:
+      message = `<td style="color:yellow">${playersNeeded} players needed.</td>`
+    default:
+      message = `<td style="color:white">${playersNeeded} players needed.</td>`
+  }
 
-    return message;
-  };
+  return message;
+};
 
+function removeTable(){
+  $('table tr').remove();
+  $('table').append(`<tr id="table-header"></tr>
+                     <tr id="table-columns"></tr>`)
 };
