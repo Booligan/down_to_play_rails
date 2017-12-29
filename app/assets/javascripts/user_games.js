@@ -6,20 +6,20 @@ function attachUserGamesListeners(){
 
   $('#planned-games').on('click', function(event){
     event.preventDefault();
-    let userID = $('h1').attr("data-user-id")
     removeTable();
-    getPlannedGames(userID);
+    getPlannedGames();
   })
 
   $('#joined-games').on('click', function(event){
     event.preventDefault();
-    let userID = $('h1').attr("data-user-id")
     removeTable();
-    getJoinedGames(userID);
+    getJoinedGames();
   })
 };
 
-function getPlannedGames(userID){
+function getPlannedGames(){
+  let userID = $('h1').attr("data-user-id")
+
   $.get(`/users/${userID}/games.json`, function(games){
     console.log(games)
     $('#table-header').append('My Planned Games')
@@ -60,7 +60,9 @@ function gameCountMessage(maxPlayers, joinedPlayers){
   return message;
 };
 
-function getJoinedGames(userID){
+function getJoinedGames(){
+  let userID = $('h1').attr("data-user-id")
+
   $.get(`/users/${userID}/joined_games`, function(games){
     console.log(games)
     $('#table-header').append('My Joined Games')
