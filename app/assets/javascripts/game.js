@@ -37,8 +37,8 @@ function addNextGameToDOM(game){
    $('#game-title').text(game.title)
    $('small').text(game.sport.name)
    $('#game-location').text(`LOCATION: ${game.location}`)
-   $('#game-start-date').text(`START DATE: ${game.start_date}`)
-   $('#game-start-time').text(`START TIME: ${game.start_time}`)
+   $('#game-start-date').text(`START DATE: ${getFormattedDate(game.start_date)}`)
+   $('#game-start-time').text(`START TIME: ${getFormattedTime(game.start_time)}`)
    $('#game-notes').text(`NOTES: ${game.notes}`)
    $('#game-players-needed').text(playersNeeded)
 
@@ -54,6 +54,20 @@ function addNextGameToDOM(game){
 
 
 };
+
+function getFormattedDate(date) {
+    let newDate = new Date(date)
+    let month = newDate.getMonth() + 1;
+    let day = newDate.getDate();
+    let year = newDate.getFullYear();
+    return month + "/" + day + "/" + year;
+}
+
+function getFormattedTime(time) {
+    let newTime = new Date(time)
+    newTime.setHours(newTime.getHours() + 5)
+    return newTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})
+}
 
 function playersNeededGame(maxPlayers, joinedPlayers){
   let playersNeeded = maxPlayers - joinedPlayers
