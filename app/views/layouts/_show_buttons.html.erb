@@ -1,6 +1,7 @@
 <% if @game.planner == current_user%>
   <div class="left_button">
     <div class="green_button bttn">
+      <%= link_to "Next Game", '#', id:"next-game"%>
       <%= link_to "All Games", games_path%>
     </div>
   </div>
@@ -15,7 +16,7 @@
   <% elsif @game.joined_players.include?(current_user)%>
   <div class="left_button">
     <div class="green_button bttn">
-      <%= link_to "All games", games_path%>
+      <%= link_to "All Games", games_path%>
     </div>
   </div>
     <% if !Game.past.include?(@game) %>

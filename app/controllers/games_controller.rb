@@ -124,6 +124,12 @@ class GamesController < ApplicationController
     render :index
   end
 
+  def joined_games
+    user = User.find(params[:id])
+    games = user.joined_games
+    render json: games
+  end
+
   private
 
   def game_params

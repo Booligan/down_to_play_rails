@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
 
-
+  get '/users/:id/joined_games', to: 'games#joined_games', as: 'joined_games'
   get '/games/:id/join', to: 'games#join', as: 'join_game'
   get '/games/:id/leave', to: 'games#leave', as: 'leave_game'
 
