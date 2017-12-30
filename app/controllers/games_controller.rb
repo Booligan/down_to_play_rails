@@ -40,7 +40,7 @@ class GamesController < ApplicationController
     respond_to do |format|
       if @game.save
         format.html { redirect_to user_game_path(@user,@game)}
-        format.json { render json: @game }
+        format.json { render json: @game, status: 201 }
       else
         @game.build_sport
         render 'new'
