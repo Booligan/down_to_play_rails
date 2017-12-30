@@ -1,0 +1,11 @@
+<br><br><br><br>
+<%= form_for 'game', html: {id: 'quick-form', style: 'display: none'} do |f|%>
+    <%= f.hidden_field :planner_id, value: current_user.id %>
+    <%= f.text_field :title, placeholder:"Title" %>
+    <%= f.hidden_field :location, value: "location", placeholder:"Location" %>
+    <%= f.collection_select :sport_id, Sport.all, :id, :name%>
+    <%= f.number_field :max_players, min: 1, max: 50, placeholder: 10 %>
+    <%= f.hidden_field :start_date, value: Date.today.strftime('%Y-%m-%d'), min: Date.today.strftime('%Y-%m-%d')%>
+    <%= f.hidden_field :start_time, value: Date.today.strftime('%H:%M %P') %>
+    <%= f.submit value: 'Create' %>
+ <% end %>

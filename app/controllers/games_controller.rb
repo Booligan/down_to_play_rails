@@ -37,11 +37,14 @@ class GamesController < ApplicationController
   def create
     @user = User.find_by(params[:user_id])
     @game = Game.new(game_params)
-    if @game.save
-      redirect_to user_game_path(@user,@game), notice: "Successfully planned a Game"
-    else
-      @game.build_sport
-      render 'new'
+    respond_to do |format|
+      if @game.save
+        format.html { redirect_to user_game_path(@user,@game)}
+        format.json { render json: @game }
+      else
+        @game.build_sport
+        render 'new'
+      end
     end
   end
 

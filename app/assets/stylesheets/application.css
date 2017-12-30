@@ -193,7 +193,6 @@ body#profilepage .container h1 {
 }
 
 body#profilepage .container table {
-  margin-top: 12%;
   margin-left: 5%;
 }
 
@@ -743,6 +742,7 @@ body#show_game_page .container #joined_players table th{
 body#show_game_page .container #joined_players table th#players-joined-th:hover{
   background-color: #F9F3F4;
   color: #2CB463;
+  cursor: pointer;
 }
 
 body#show_game_page .container #joined_players table tbody tr td a{
