@@ -14,5 +14,6 @@
 //= require turbolinks
 //= require_tree .
 //= require navbar
+//= require game_object
 //= require user_games
 //= require game
