@@ -15,7 +15,6 @@ function attachNextGameListener(){
 
 function getNextGame(){
   let userID = $('#planner').attr(`data-user-id`)
-
   $.get(`/users/${userID}/games.json`, function(games){
     let currentGameID = $('h1').attr(`data-game-id`)
     let nextGame = undefined
@@ -31,6 +30,29 @@ function getNextGame(){
     addNextGameToDOM(nextGame)
   })
 };
+
+// JOINEDPLAYER OBJECT
+
+function JoinedPlayer(playerData){
+  this.id = playerData.id
+  this.email = playerData.email
+};
+
+JoinedPlayer.prototype.generateTableRow = function(){
+  tr = `<tr class="game-joined-player" style="display:none">
+          <td><a href="/users/${this.id}">${this.email}</a></td>
+        </tr>`
+
+  return tr;
+};
+
+// SHOW JOINED PLAYERS CLICK ACTION
+
+function showJoinedPlayers(){
+  $('.game-joined-player').show()
+};
+
+// HELPER FUNCTIONS
 
 function addNextGameToDOM(game){
   let maxPlayers = game.max_players
@@ -53,26 +75,10 @@ function addNextGameToDOM(game){
       let joinedPlayerTr = joinedPlayer.generateTableRow();
       $('#joined-players-table').append(joinedPlayerTr);
    })
-
+   // UPDATE BUTTONS TO CORRECT GAME ROUTE
    $('#edit-game').attr("href", `/users/${game.planner.id}/games/${game.id}/edit`)
    $('#cancel-game').attr("href", `/games/${game.id}`)
-
-
 };
-
-function getFormattedDate(date) {
-    let newDate = new Date(date)
-    let month = newDate.getMonth() + 1;
-    let day = newDate.getDate() + 1;
-    let year = newDate.getFullYear();
-    return month + "/" + day + "/" + year;
-}
-
-function getFormattedTime(time) {
-    let newTime = new Date(time)
-    newTime.setHours(newTime.getHours() + 5)
-    return newTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})
-}
 
 function playersNeededGame(maxPlayers, joinedPlayers){
   let playersNeeded = maxPlayers - joinedPlayers
@@ -95,19 +101,16 @@ function playersNeededGame(maxPlayers, joinedPlayers){
   return message;
 };
 
-function JoinedPlayer(playerData){
-  this.id = playerData.id
-  this.email = playerData.email
-};
+function getFormattedDate(date) {
+    let newDate = new Date(date)
+    let month = newDate.getMonth() + 1;
+    let day = newDate.getDate() + 1;
+    let year = newDate.getFullYear();
+    return month + "/" + day + "/" + year;
+}
 
-JoinedPlayer.prototype.generateTableRow = function(){
-  tr = `<tr class="game-joined-player" style="display:none">
-          <td><a href="/users/${this.id}">${this.email}</a></td>
-        </tr>`
-
-  return tr;
-};
-
-function showJoinedPlayers(){
-  $('.game-joined-player').show()
-};
+function getFormattedTime(time) {
+    let newTime = new Date(time)
+    newTime.setHours(newTime.getHours() + 5)
+    return newTime.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'})
+}
