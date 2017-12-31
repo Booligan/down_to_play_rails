@@ -192,6 +192,10 @@ body#profilepage .container h1 {
   text-align: center;
 }
 
+body#profilepage form#quick-form {
+    margin-left: 33%;
+}
+
 body#profilepage .container table {
   margin-left: 5%;
 }
